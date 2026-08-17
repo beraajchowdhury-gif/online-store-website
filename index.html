@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NASATYA — Cellular Longevity & Custom Elixirs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- White Bubble Calm Sea Wave Canvas -->
+  <canvas id="waves-bg"></canvas>
+
+  <!-- Minimalist Apple-Style Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <span class="brand-logo" id="nav-logo">NASATYA</span>
+      <div class="nav-links">
+        <a href="#" id="nav-home" class="active">About Us</a>
+        <a href="#" id="nav-drinks">Our Drinks</a>
+        <a href="#" id="nav-philosophy">Philosophy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE 1: Home / Welcome Page View -->
+  <div class="page-view active" id="home-page">
+    <main class="hero-section" id="about">
+      <div class="hero-content">
+        <p class="eyebrow">VITALITY IN A BOTTLE</p>
+        <h1 class="hero-title">Longevity, formulated<br/>by your biology.</h1>
+        
+        <div class="about-card" id="philosophy">
+          <h3>About Nasatya</h3>
+          <p>
+            Named after the Vedic twin deities of healing, Nasatya bridges wild-harvested botanical medicine with cellular nutritional science. Our ingredients drift in harmony with your biology—customized for your exact circadian, cognitive, and longevity needs.
+          </p>
+        </div>
+
+        <!-- Main Clickable Trigger for the Laboratory -->
+        <button class="custom-maker-btn open-lab-btn">
+          <span>Custom potion maker</span>
+          <span class="btn-icon">&#10024;</span>
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- PAGE 2: Dedicated "Our Drinks" Page View (Internal Link) -->
+  <div class="page-view" id="drinks-page">
+    <section class="elixirs-section" id="elixirs">
+      <div class="elixirs-header">
+        <button class="back-home-btn" id="back-home-btn">&#8592; Back to Home</button>
+        <p class="eyebrow">READY-TO-DRINK FORMULATIONS</p>
+        <h2 class="elixirs-title">Our Signature Elixirs</h2>
+        <p class="elixirs-subtitle">Six distinct functional beverages engineered for different biological systems. Select a bottle to inspect its cellular properties and pricing.</p>
+        
+        <!-- Horizontal Drink Selector Pills -->
+        <div class="drink-selector" id="drink-selector">
+          <button class="drink-pill active" data-drink="emerald">Emerald Cellular</button>
+          <button class="drink-pill" data-drink="solar">Solar Vitality</button>
+          <button class="drink-pill" data-drink="velvet">Velvet Longevity</button>
+          <button class="drink-pill" data-drink="chandra">Chandra Cooling</button>
+          <button class="drink-pill" data-drink="soma">Soma Deep Rest</button>
+          <button class="drink-pill" data-drink="amrita">Amrita Youth</button>
+        </div>
+      </div>
+
+      <!-- Interactive Signature Bottle Showcase Stage -->
+      <div class="signature-showcase">
+        <div class="sig-bottle-stage" id="sig-stage">
+          <div class="rx-bottle sig-bottle" id="sig-bottle">
+            <div class="rx-cap"></div>
+            <div class="rx-neck"></div>
+            <div class="rx-body">
+              <div class="rx-liquid" id="sig-liquid"></div>
+              <div class="rx-label">
+                <span class="rx-brand">NASATYA • SIG-01</span>
+                <h3 id="sig-name">Emerald Cellular</h3>
+                <p id="sig-tagline">Matcha • Spirulina • Ashwagandha</p>
+                <span class="sig-badge" id="sig-badge">100% Bio-Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Health Benefits & Biological Properties Panel -->
+        <div class="sig-details">
+          <div class="sig-header-row">
+            <span class="sig-category" id="sig-category">CELLULAR FOCUS &amp; ENERGY</span>
+            <span class="sig-price-tag" id="sig-price-tag">₹85</span>
+          </div>
+
+          <h3 class="sig-title" id="sig-title-display">Sustained ATP Production</h3>
+          <p class="sig-desc" id="sig-desc">
+            Engineered with ceremonial Uji matcha and wild spirulina to support sustained cellular focus and clean mitochondrial energy without caffeine crashes.
+          </p>
+
+          <!-- Biological Properties Badges -->
+          <div class="sig-properties-group">
+            <span class="prop-label">BIO-PROPERTIES</span>
+            <div class="sig-tags" id="sig-tags">
+              <span class="prop-tag">Adaptogenic Focus</span>
+              <span class="prop-tag">L-Theanine Boost</span>
+              <span class="prop-tag">Zero Jitters</span>
+            </div>
+          </div>
+
+          <!-- Key Ingredients Visual Grid -->
+          <div class="sig-ingredients-group">
+            <span class="prop-label">ACTIVE BOTANICALS</span>
+            <div class="sig-ingredients-grid" id="sig-ingredients-grid">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </div>
+
+          <button class="order-sig-btn" id="order-sig-btn">Order Bottle (₹85)</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LABORATORY MODAL OVERLAY -->
+  <div class="modal-overlay" id="lab-modal">
+    <div class="modal-container lab-modal-card">
+      <button class="close-modal" id="close-lab">&times;</button>
+
+      <div class="lab-header">
+        <p class="eyebrow">INTERACTIVE FORMULATION</p>
+        <h2 class="lab-title">The Nasatya Bio-Lab</h2>
+        <p class="lab-subtitle">Select 3 or 4 functional potions from the shelf to synthesize your matched prescription.</p>
+      </div>
+
+      <div class="lab-workspace">
+        <!-- Left: 12-Potion Shelf Grid -->
+        <div class="potion-shelf" id="potion-shelf">
+          <!-- Dynamically populated by JS -->
+        </div>
+
+        <!-- Right: Glass Flask & Live Analysis -->
+        <div class="lab-console">
+          <div class="console-card">
+            <div class="flask-container">
+              <div class="flask">
+                <div class="flask-neck"></div>
+                <div class="flask-body">
+                  <div class="flask-liquid" id="flask-liquid"></div>
+                  <div class="flask-reflections"></div>
+                </div>
+              </div>
+              <div class="flask-stand"></div>
+            </div>
+
+            <div class="analysis-panel">
+              <div class="analysis-header">
+                <span class="synergy-label">POTION CAPACITANCE</span>
+                <span class="synergy-score" id="synergy-score">0 / 4 Selected</span>
+              </div>
+              
+              <h3 class="elixir-name" id="elixir-name">Empty Flask</h3>
+              <p class="elixir-desc" id="elixir-desc">Select 3 or 4 potions from the shelf to synthesize your custom prescription.</p>
+
+              <div class="benefits-list" id="benefits-list">
+                <!-- Dynamically populated benefits -->
+              </div>
+
+              <div class="console-actions">
+                <button class="reset-btn" id="reset-btn">Reset</button>
+                <button class="synthesize-btn disabled" id="synthesize-btn">Synthesize &amp; Reveal Elixir &#8594;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESCRIPTION RESULT MODAL OVERLAY -->
+  <div class="modal-overlay" id="prescription-modal">
+    <div class="modal-container prescription-modal-card">
+      <button class="close-modal" id="close-prescription">&times;</button>
+
+      <div class="prescription-header">
+        <p class="eyebrow">YOUR MATCHED FORMULA</p>
+        <h2 class="prescription-title" id="rx-title">Soma Restoration Elixir</h2>
+        <p class="prescription-subtitle" id="rx-subtitle">Synthesized based on your selected functional profile.</p>
+      </div>
+
+      <div class="prescription-display">
+        <!-- Customized Prescription Bottle -->
+        <div class="rx-bottle-container">
+          <div class="rx-bottle" id="rx-bottle">
+            <div class="rx-cap"></div>
+            <div class="rx-neck"></div>
+            <div class="rx-body">
+              <div class="rx-liquid" id="rx-liquid"></div>
+              <div class="rx-label">
+                <span class="rx-brand">NASATYA • RX</span>
+                <h3 id="rx-bottle-name">Soma Sleep</h3>
+                <p id="rx-bottle-tagline">Restoration • Deep Slumber</p>
+                <span class="rx-badge" id="rx-badge">99.4% Bio-Compatible Formula</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prescription Details & Order Card -->
+        <div class="rx-details-card">
+          <h3>Prescription Analysis</h3>
+          <p class="rx-desc" id="rx-description">
+            This prescription prioritizes parasympathetic nervous system repair and deep REM sleep architecture while maintaining cellular homeostasis.
+          </p>
+
+          <div class="rx-specs">
+            <div class="spec-item">
+              <span class="spec-label">Primary Action</span>
+              <span class="spec-value" id="rx-primary">Circadian Reset</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bioavailability</span>
+              <span class="spec-value">Micellar Nano-Emulsion</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Recommended Dosing</span>
+              <span class="spec-value" id="rx-dosing">50ml • 45 min before sleep</span>
+            </div>
+          </div>
+
+          <div class="rx-order-box">
+            <div class="rx-price">
+              <span class="price-amount" id="rx-price-amount">₹95</span>
+              <span class="price-unit">/ 350ml Fresh Bottle</span>
+            </div>
+            <div class="rx-btn-group">
+              <button class="back-to-lab-btn" id="back-to-lab-btn">&#8592; Edit Potions</button>
+              <button class="order-rx-btn">Order Bespoke Elixir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
